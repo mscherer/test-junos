@@ -1,0 +1,15 @@
+---
+- hosts: junos
+  gather_facts: no
+  connection: local
+
+  vars:
+    testcase: "{{ test_case | default('') }}"
+    limitto: "{{ limit_to | default('') }}"
+    test_cases:
+        - files: []
+
+  roles:
+    - { role: test_junos_command, when: "limitto == '' or limitto == 'command'" }
+    - { role: test_junos_config, when: "limitto == '' or limitto == 'config'" }
+    - { role: test_junos_template, when: "limitto == '' or limitto == 'template'" }
