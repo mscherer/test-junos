@@ -2,7 +2,7 @@
 
 # test-junos
 
-Playbooks for testing Junos odules with Juniper devices
+Playbooks for testing Junos modules with Juniper devices
 
 ```
 $ ansible-playbook all.yaml
